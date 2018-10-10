@@ -24,6 +24,12 @@ set app path, by default: `../`
 APP_CODE_PATH_HOST
 ```
 
+set nginx conf
+
+```
+cp laravel.template laravel.conf
+```
+
 start docker
 
 ```
