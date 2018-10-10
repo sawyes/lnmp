@@ -11,7 +11,7 @@ thanks [laradock/php-fpm](https://github.com/laradock/php-fpm)
 
 ## usage
 
-#### start
+#### Installation and Configuration
 
 set env
 
