@@ -1,7 +1,30 @@
 
 
+thanks [laradock/php-fpm](https://github.com/laradock/php-fpm)
 
-## start
+## Todo list
+
+- [x] nginx
+- [x] php-fpm(5.4)
+- [ ] mysql
+
+
+## usage
+
+#### start
+
+set env
+
+```
+cp .env.example .env
+```
+
+set app path, by default: `../`
+```
+APP_CODE_PATH_HOST
+```
+
+start docker
 
 ```
 docker-compose up -d nginx
@@ -10,7 +33,7 @@ docker-compose exec php-fpm bash
 docker-compose exec nginx bash
 ```
 
-## rebuild
+#### rebuild
 
 ```
 docker-compose down
@@ -18,7 +41,7 @@ docker-compose build --no-cache
 ```
 
 
-## php-fpm
+#### php-fpm
 
 ext save in docker(docker-php-ext-install)
 

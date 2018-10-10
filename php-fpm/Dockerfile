@@ -1,4 +1,3 @@
-# https://github.com/laradock/php-fpm
 ARG PHP_VERSION=${PHP_VERSION}
 
 FROM php:${PHP_VERSION}-fpm
