@@ -94,9 +94,8 @@ RUN if [ ${INSTALL_MYSQLI} = true ]; then \
 ARG INSTALL_PDO=false
 
 RUN if [ ${INSTALL_PDO} = true ]; then \
-    docker-php-ext-install pdo &&\
+    docker-php-ext-install pdo && \
     docker-php-ext-install pdo_mysql \
-    docker-php-ext-install pdo_pgsql \
 ;fi
 
 ###########################################################################
@@ -270,6 +269,9 @@ RUN if [ ${INSTALL_MCRYPT} = true ]; then \
 ;fi
 
 USER root
+
+
+COPY ./error.ini /usr/local/etc/php/conf.d/error.ini
 
 # Clean up
 RUN apt-get clean && \
