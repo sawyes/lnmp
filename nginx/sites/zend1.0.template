@@ -3,7 +3,7 @@ server {
     listen 80;
     listen [::]:80;
 
-    server_name fyclient.test;
+    server_name app.test;
     root /var/www/pub;
     index index.php index.html index.htm;
 
@@ -32,6 +32,6 @@ server {
         log_not_found off;
     }
 
-    error_log /var/log/nginx/fyclient.error.log error;
-    access_log /var/log/nginx/fyclient.access.log;
+    error_log /var/log/nginx/app.error.log error;
+    access_log /var/log/nginx/app.log;
 }
