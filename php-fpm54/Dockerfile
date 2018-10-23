@@ -1,6 +1,4 @@
-ARG PHP_VERSION=${PHP_VERSION}
-
-FROM php:${PHP_VERSION}-fpm
+FROM php:5.4-fpm
 
 LABEL maintainer="peter <7061384@126.com>"
 
@@ -281,6 +279,8 @@ USER root
 
 COPY ./error.ini /usr/local/etc/php/conf.d/error.ini
 
+RUN sed -i '/9000/9504/' /usr/local/etc/php-fpm.conf
+
 # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
@@ -294,4 +294,4 @@ WORKDIR /var/www
 
 CMD ["php-fpm"]
 
-EXPOSE 9000
+EXPOSE 9054
