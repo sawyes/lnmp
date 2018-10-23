@@ -279,7 +279,7 @@ USER root
 
 COPY ./error.ini /usr/local/etc/php/conf.d/error.ini
 
-RUN sed -i '/9000/9504/' /usr/local/etc/php-fpm.conf
+RUN sed -i 's/9000/9504/' /usr/local/etc/php-fpm.conf
 
 # Clean up
 RUN apt-get clean && \
