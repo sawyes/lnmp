@@ -47,6 +47,14 @@ RUN apt-get update && \
         libpcre3-dev
 
 ###########################################################################
+# WKHTMLTOPDF, A application that output pdf document
+###########################################################################
+ARG INSTALL_WKHTMLTOPDF=false
+RUN if [ ${INSTALL_WKHTMLTOPDF} = ture ]; then \
+    apt-get install -y wkhtmltopdf \
+;fi
+
+###########################################################################
 # composer
 ###########################################################################
 
@@ -286,4 +294,4 @@ WORKDIR /var/www
 
 CMD ["php-fpm"]
 
-EXPOSE 9000
+EXPOSE 9054
