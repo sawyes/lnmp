@@ -46,8 +46,10 @@ RUN apt-get update && \
 ###########################################################################
 # WKHTMLTOPDF, A application that output pdf document
 ###########################################################################
+
 ARG INSTALL_WKHTMLTOPDF=false
-RUN if [ ${INSTALL_WKHTMLTOPDF} = ture ]; then \
+
+RUN if [ ${INSTALL_WKHTMLTOPDF} = true ]; then \
     apt-get install -y wkhtmltopdf \
 ;fi
 
