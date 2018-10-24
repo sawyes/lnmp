@@ -43,7 +43,6 @@ RUN apt-get update && \
         libssl-dev \
         libnghttp2-dev \
         libjpeg-dev \
-        libmcrypt-dev \
         libpcre3-dev
 
 ###########################################################################
@@ -264,18 +263,6 @@ RUN if [ ${INSTALL_MEMCACHED} = true ]; then \
     && rm -r memcached \
     && rm /tmp/memcached.tar.gz \
     && docker-php-ext-enable memcached \
-;fi
-
-###########################################################################
-# bcmath:
-# PHP_VERSION < 5.6
-###########################################################################
-
-ARG INSTALL_MCRYPT=false
-
-RUN if [ ${INSTALL_MCRYPT} = true ]; then \
-    # Install the mcrypt extension
-    docker-php-ext-install mcrypt \
 ;fi
 
 USER root
