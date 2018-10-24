@@ -15,6 +15,12 @@ services:
           - PHP_UPSTREAM_CONTAINER=${NGINX_PHP_UPSTREAM_CONTAINER}
           - PHP_UPSTREAM_PORT=${NGINX_PHP_UPSTREAM_PORT}
           - CHANGE_SOURCE=${CHANGE_SOURCE}
+          - ENABLE_PHP54=${UPSTREAM_ENABLE_PHP54}
+          - ENABLE_PHP55=${UPSTREAM_ENABLE_PHP55}
+          - ENABLE_PHP56=${UPSTREAM_ENABLE_PHP56}
+          - ENABLE_PHP70=${UPSTREAM_ENABLE_PHP70}
+          - ENABLE_PHP71=${UPSTREAM_ENABLE_PHP71}
+          - ENABLE_PHP72=${UPSTREAM_ENABLE_PHP72}
       volumes:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
         - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
@@ -72,12 +78,11 @@ services:
       networks:
         - backend
 
-### PHP-FPM ##############################################
+### PHP-FPM 54 ##############################################
     php-fpm54:
       build:
         context: ./php-fpm54
         args:
-          - PHP_VERSION=${PHP_VERSION}
           - SWOOLE_VERSION=${SWOOLE_VERSION}
           - HIREDIS_VERSION=${HIREDIS_VERSION}
           - CHANGE_SOURCE=${CHANGE_SOURCE}

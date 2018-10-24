@@ -60,6 +60,8 @@ RUN if [ ${INSTALL_WKHTMLTOPDF} = ture ]; then \
 
 ARG INSTALL_COMPOSER=false
 
+ARG COMPOSER_REPO_PACKAGIST
+
 RUN if [ ${INSTALL_COMPOSER} = true ]; then \
     curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \

@@ -57,6 +57,7 @@ RUN if [ ${INSTALL_WKHTMLTOPDF} = ture ]; then \
 ###########################################################################
 
 ARG INSTALL_COMPOSER=false
+ARG COMPOSER_REPO_PACKAGIST
 
 RUN if [ ${INSTALL_COMPOSER} = true ]; then \
     curl -sS https://getcomposer.org/installer | php \
@@ -279,7 +280,7 @@ USER root
 
 COPY ./error.ini /usr/local/etc/php/conf.d/error.ini
 
-RUN sed -i 's/9000/9504/' /usr/local/etc/php-fpm.conf
+RUN sed -i 's/9000/9054/' /usr/local/etc/php-fpm.conf
 
 # Clean up
 RUN apt-get clean && \
