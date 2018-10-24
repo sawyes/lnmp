@@ -6,13 +6,8 @@ ARG CHANGE_SOURCE=false
 RUN if [ ${CHANGE_SOURCE} = true ]; then \
     # Change application source from dl-cdn.alpinelinux.org to aliyun source
     cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
-    echo "" > /etc/apt/sources.list && \
-    echo "deb http://mirrors.aliyun.com/debian/ jessie main non-free contrib" >> /etc/apt/sources.list && \
-    echo "deb http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib" >> /etc/apt/sources.list && \
-    echo "deb-src http://mirrors.aliyun.com/debian/ jessie main non-free contrib" >> /etc/apt/sources.list && \
-    echo "deb-src http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib" >> /etc/apt/sources.list \
-#    cat /etc/apt/sources.list.bak >> /etc/apt/sources.list && \
-#    rm -fr /etc/apt/sources.list.bak \
+    rm -fr /etc/apt/sources.list && \
+    cp /etc/apt/debian/8.x.jessie.source.list /etc/apt/sources.list \
 ;fi
 
 ###########################################################################
