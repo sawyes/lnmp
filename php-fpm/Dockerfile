@@ -5,6 +5,9 @@ FROM php:${PHP_VERSION}-fpm
 LABEL maintainer="peter <7061384@126.com>"
 
 ARG CHANGE_SOURCE=false
+
+COPY ./alibaba-source/ /etc/apt/
+
 RUN if [ ${CHANGE_SOURCE} = true ]; then \
     # Change application source from dl-cdn.alpinelinux.org to aliyun source
     cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
