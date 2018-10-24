@@ -50,7 +50,7 @@ RUN apt-get update && \
 ARG INSTALL_WKHTMLTOPDF=false
 
 RUN if [ ${INSTALL_WKHTMLTOPDF} = true ]; then \
-    apt-get install -y wkhtmltopdf \
+     apt-get update && apt-get install -y wkhtmltopdf \
 ;fi
 
 ###########################################################################
