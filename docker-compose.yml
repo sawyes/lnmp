@@ -82,8 +82,6 @@ services:
       build:
         context: ./php-fpm54
         args:
-          - SWOOLE_VERSION=${SWOOLE_VERSION}
-          - HIREDIS_VERSION=${HIREDIS_VERSION}
           - CHANGE_SOURCE=${CHANGE_SOURCE}
           - COMPOSER_REPO_PACKAGIST=${COMPOSER_REPO_PACKAGIST}
           - HTTP_PROXY=${HTTP_PROXY}
