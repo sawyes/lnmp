@@ -195,50 +195,6 @@ COPY ./opcache.ini $PHP_INI_DIR/conf.d/
 COPY ./laravel.ini /usr/local/etc/php/conf.d/laravel.ini
 
 ###########################################################################
-# Hiredis:
-###########################################################################
-
-ARG INSTALL_HIREDIS=${INSTALL_HIREDIS}
-ARG HIREDIS_VERSION=${HIREDIS_VERSION}
-
-RUN if [ ${INSTALL_HIREDIS} = true ]; then \
-    wget https://github.com/redis/hiredis/archive/v${HIREDIS_VERSION}.tar.gz -O hiredis.tar.gz \
-    && mkdir -p hiredis \
-    && tar -xf hiredis.tar.gz -C hiredis --strip-components=1 \
-    && rm hiredis.tar.gz \
-    && ( \
-        cd hiredis \
-        && make -j$(nproc) \
-        && make install \
-        && ldconfig \
-    ) \
-    && rm -r hiredis \
-;fi
-
-###########################################################################
-# Swoole extension:
-###########################################################################
-
-ARG INSTALL_SWOOLE=${INSTALL_SWOOLE}
-ARG SWOOLE_VERSION=${SWOOLE_VERSION}
-
-RUN if [ ${INSTALL_SWOOLE} = true ]; then \
-    wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.tar.gz -O swoole.tar.gz \
-    && mkdir -p swoole \
-    && tar -xf swoole.tar.gz -C swoole --strip-components=1 \
-    && rm swoole.tar.gz \
-    && ( \
-        cd swoole \
-        && phpize \
-        && ./configure --enable-async-redis --enable-mysqlnd --enable-openssl --enable-http2 \
-        && make -j$(nproc) \
-        && make install \
-    ) \
-    && rm -r swoole \
-    && docker-php-ext-enable swoole \
-;fi
-
-###########################################################################
 # PHP Memcached:
 ###########################################################################
 
