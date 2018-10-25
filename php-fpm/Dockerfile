@@ -277,7 +277,9 @@ RUN apt-get clean && \
     pear config-set http_proxy "" && \
     apt-get autoremove
 
-RUN usermod -u 1000 www-data
+COPY ./php-fpm/php-fpm7.2.conf /usr/local/etc/php-fpm.d/www.conf
+
+RUN groupadd -r www -g 1001 && useradd --no-log-init -u 1001 -r -g www www
 
 WORKDIR /var/www
 
