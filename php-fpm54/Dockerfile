@@ -241,7 +241,7 @@ RUN apt-get clean && \
     pear config-set http_proxy "" && \
     apt-get autoremove
 
-RUN adduser -D -H -u 1000 www
+RUN adduser -u 1000 www
 
 WORKDIR /var/www
 
