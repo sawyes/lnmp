@@ -241,7 +241,7 @@ RUN apt-get clean && \
     pear config-set http_proxy "" && \
     apt-get autoremove
 
-RUN groupadd -r www -g 1001 && useradd --no-log-init -r -g www www
+RUN groupadd -r www -g 1001 && useradd --no-log-init -u 1001 -r -g www www
 
 WORKDIR /var/www
 
