@@ -104,6 +104,7 @@ services:
       volumes:
         - ./php-fpm/php5.4.ini:/usr/local/etc/php/php.ini
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+        - ./php-fpm/php-fpm54.ini:/usr/local/etc/php-fpm.conf
       expose:
         - "9054"
       extra_hosts:

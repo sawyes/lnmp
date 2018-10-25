@@ -234,7 +234,8 @@ USER root
 
 COPY ./error.ini /usr/local/etc/php/conf.d/error.ini
 
-RUN sed -i 's/9000/9054/' /usr/local/etc/php-fpm.conf
+#RUN sed -i 's/9000/9054/' /usr/local/etc/php-fpm.conf
+#RUN sed -i 's/www-data/www/' /usr/local/etc/php-fpm.conf
 
 # Clean up
 RUN apt-get clean && \
@@ -243,7 +244,7 @@ RUN apt-get clean && \
     pear config-set http_proxy "" && \
     apt-get autoremove
 
-RUN usermod -u 1001 www
+RUN adduser -D -H -u 1001 www
 
 WORKDIR /var/www
 
