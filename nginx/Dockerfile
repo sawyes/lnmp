@@ -15,7 +15,7 @@ RUN if [ ${CHANGE_SOURCE} = true ]; then \
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache bash \
-    && adduser -D -H -u 1000 www-data
+    && adduser -D -H -u 1001 www
 
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000
