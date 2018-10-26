@@ -108,14 +108,19 @@ server {
     
 ```
 
-#### permission
+#### app permission
 
-on server, change your project folder owner, by default: www
+> set uid,gid in .env before build docker
+
+app user default: www.
+
+you need to create www user on server, `id www` to know user wwww's gid uid, next step change app folder to www
 
 ```
 useradd -s /sbin/nologin www
 chown www:www -R /path/to/project
 ```
+
 
 
 

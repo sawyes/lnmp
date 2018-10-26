@@ -12,10 +12,12 @@ RUN if [ ${CHANGE_SOURCE} = true ]; then \
     sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories \
 ;fi
 
+ARG APP_USER=www
+ARG APP_UID=1001
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache bash \
-    && adduser -D -H -u 1001 www
+    && adduser -D -H -u ${APP_UID} ${APP_USER}
 
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000
