@@ -85,9 +85,9 @@ services:
           - CHANGE_SOURCE=${CHANGE_SOURCE}
           - COMPOSER_REPO_PACKAGIST=${COMPOSER_REPO_PACKAGIST}
           - HTTP_PROXY=${HTTP_PROXY}
-          - USER=${USER}
+          - RUN_USER=${USER}
           - UID=${UID}
-          - GROUP=${GROUP}
+          - RUN_GROUP=${GROUP}
           - GID=${GID}
 
           - INSTALL_WKHTMLTOPDF=${PHP_FPM_INSTALL_WKHTMLTOPDF}

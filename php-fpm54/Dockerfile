@@ -241,11 +241,11 @@ RUN apt-get clean && \
     pear config-set http_proxy "" && \
     apt-get autoremove
 
-ARG USER=www
-ARG UID=1001
-ARG GROUP=WWW
-ARG GID=1001
-RUN groupadd -r www -g ${GID} && useradd --no-log-init -u ${UID} -r -g ${GROUP} ${USER}
+ARG APP_USER=www
+ARG APP_UID=1001
+ARG APP_GROUP=WWW
+ARG APP_GID=1001
+RUN groupadd -r www -g ${APP_GID} && useradd --no-log-init -u ${APP_UID} -r -g ${APP_GROUP} ${APP_USER}
 
 WORKDIR /var/www
 
