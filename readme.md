@@ -107,3 +107,18 @@ server {
         ...
     
 ```
+
+#### permission
+
+on server, change your project folder owner, by default: www
+
+```
+useradd -s /sbin/nologin www
+chown www:www -R /path/to/project
+```
+
+
+
+
+
+
