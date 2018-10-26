@@ -83,7 +83,7 @@ services:
       networks:
         - backend
 
-### PHP-FPM 54 ##############################################
+### PHP-FPM 54 ###########################################
     php-fpm54:
       build:
         context: ./php-fpm54
@@ -122,5 +122,16 @@ services:
       environment:
         - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
         - TZ=${TIMEZONE}
+      networks:
+        - backend
+
+### Redis ################################################
+    redis:
+      build:
+        context: ./redis
+      volumes:
+        - ${DATA_PATH_HOST}/redis:/data
+      ports:
+        - "${REDIS_PORT}:6379"
       networks:
         - backend

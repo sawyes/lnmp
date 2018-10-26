@@ -7,6 +7,8 @@ thanks [laradock/php-fpm](https://github.com/laradock/php-fpm)
 - [x] nginx
 - [x] php-fpm
 - [ ] mysql
+- [ ] redis
+- [ ] gitlab
 
 
 ## usage
@@ -127,3 +129,8 @@ chown www:www -R /path/to/project
 
 
 
+## redis
+
+```
+cp redis.conf.template to redis.conf
+```
