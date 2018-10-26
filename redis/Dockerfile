@@ -6,10 +6,7 @@ LABEL maintainer="peter <7061384@126.com>"
 RUN mkdir -p /usr/local/etc/redis/
 COPY redis.conf /usr/local/etc/redis/redis.conf
 
-RUN echo 511 > /proc/sys/net/core/somaxconn && \
-    echo "net.core.somaxconn = 551" > /etc/sysctl.conf
-
-RUN echo 1 > /proc/sys/vm/overcommit_memory && \
+RUN echo "net.core.somaxconn = 551" > /etc/sysctl.conf && \
     echo "vm.overcommit_memory=1" >> /etc/sysctl.conf
 
 VOLUME /data
