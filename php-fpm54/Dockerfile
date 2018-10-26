@@ -245,7 +245,8 @@ ARG APP_USER=www
 ARG APP_UID=1001
 ARG APP_GROUP=www
 ARG APP_GID=1001
-RUN groupadd -r ${APP_GROUP} -g ${APP_GID} && useradd --no-log-init -u ${APP_UID} -r -g ${APP_GROUP} ${APP_USER}
+RUN groupadd -r ${APP_GROUP} -g ${APP_GID} && \
+    useradd --no-log-init -u ${APP_UID} -r -g ${APP_GROUP} ${APP_USER}
 
 WORKDIR /var/www
 

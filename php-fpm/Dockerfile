@@ -279,7 +279,12 @@ RUN apt-get clean && \
 
 COPY ./php-fpm/php-fpm7.2.conf /usr/local/etc/php-fpm.d/www.conf
 
-RUN groupadd -r www -g 1001 && useradd --no-log-init -u 1001 -r -g www www
+ARG APP_USER=www
+ARG APP_UID=1001
+ARG APP_GROUP=www
+ARG APP_GID=1001
+RUN groupadd -r ${APP_GROUP} -g ${APP_GID} && \
+    useradd --no-log-init -u ${APP_UID} -r -g ${APP_GROUP} ${APP_USER}
 
 WORKDIR /var/www
 
