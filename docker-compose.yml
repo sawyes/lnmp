@@ -85,53 +85,6 @@ services:
 
 ### PHP-FPM 54 ###########################################
     php-fpm54:
-      env_file:
-        - ./php-fpm/phpfpm54.env
-#        - .env
-      build:
-        context: ./php-fpm
-        dockerfile: Dockerfile.php-fpm54
-        args:
-          - TEST=${TEST}
-          - CHANGE_SOURCE=${CHANGE_SOURCE}
-          - COMPOSER_REPO_PACKAGIST=${COMPOSER_REPO_PACKAGIST}
-          - HTTP_PROXY=${HTTP_PROXY}
-          - APP_USER=${APP_USER}
-          - APP_UID=${APP_UID}
-          - APP_GROUP=${APP_GROUP}
-          - APP_GID=${APP_GID}
-
-          - INSTALL_WKHTMLTOPDF=${PHP_FPM_INSTALL_WKHTMLTOPDF}
-          - INSTALL_COMPOSER=${PHP_FPM_INSTALL_COMPOSER}
-          - INSTALL_PHPREDIS=${PHP_FPM_INSTALL_PHPREDIS}
-          - INSTALL_MYSQLI=${PHP_FPM_INSTALL_MYSQLI}
-          - INSTALL_PDO=${PHP_FPM_INSTALL_PDO}
-          - INSTALL_PGSQL=${PHP_FPM_INSTALL_PGSQL}
-          - INSTALL_PG_CLIENT=${PHP_FPM_INSTALL_PG_CLIENT}
-          - INSTALL_ZIP=${PHP_FPM_INSTALL_ZIP}
-          - INSTALL_MBSTRING=${PHP_FPM_INSTALL_MBSTRING}
-          - INSTALL_BCMATH=${PHP_FPM_INSTALL_BCMATH}
-          - INSTALL_GD=${PHP_FPM_INSTALL_GD}
-
-          - INSTALL_OPCACHE=${PHP_FPM_INSTALL_OPCACHE}
-          - INSTALL_MEMCACHED=${PHP_FPM_INSTALL_MEMCACHED}
-          - INSTALL_MCRYPT=${PHP_FPM_INSTALL_MCRYPT}
-      volumes:
-        - ./php-fpm/php5.4.ini:/usr/local/etc/php/php.ini
-        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
-        - ./php-fpm/php-fpm/php-fpm54.conf:/usr/local/etc/php-fpm.conf
-      expose:
-        - "9054"
-      extra_hosts:
-        - "dockerhost:${DOCKER_HOST_IP}"
-      environment:
-        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
-        - TZ=${TIMEZONE}
-      networks:
-        - backend
-
-### PHP-FPM 54 OLD ###########################################
-    php-fpm54-old:
       build:
         context: ./php-fpm54
         args:
