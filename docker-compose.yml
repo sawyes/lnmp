@@ -145,6 +145,7 @@ services:
 ### gitlab ################################################
     gitlab:
       image: gitlab/gitlab-ce:latest
+      hostname: 'gitlab.example.com'
       build:
         context: ./gitlab
       volumes:
@@ -157,13 +158,8 @@ services:
         - "8443:443"
         - "2222:22"
       environment:
-        - TZ=${TIMEZONE}
+        GITLAB_OMNIBUS_CONFIG: |
+          external_url 'https://gitlab.example.com'
       networks:
         - backend
       restart: always
-#      deploy:
-#        restart_policy:
-#          condition: on-failure
-#          delay: 5s
-#          max_attempts: 3
-#          window: 120s
