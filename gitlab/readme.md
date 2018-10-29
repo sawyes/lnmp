@@ -13,3 +13,16 @@ sudo docker run --detach \
     --volume /srv/gitlab/data:/var/opt/gitlab \
     gitlab/gitlab-ce:latest
 ```
+
+### docker-compose
+
+```
+docker-compose up -d gitlab
+```
+
+# proxy pass to gitlab
+
+```
+cp nginx_proxy_pass.conf /path/to/nginx
+```
+
