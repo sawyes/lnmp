@@ -133,5 +133,8 @@ services:
         - ${DATA_PATH_HOST}/redis:/data
       ports:
         - "${REDIS_PORT}:6379"
+#        - "6379:6379"
+      environment:
+        - TZ=${TIMEZONE}
       networks:
         - backend

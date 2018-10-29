@@ -123,14 +123,13 @@ useradd -s /sbin/nologin www
 chown www:www -R /path/to/project
 ```
 
-
-
-
-
-
-
 ## redis
 
 ```
 cp redis.conf.template to redis.conf
 ```
+
+data save path see DATA_PATH_HOST set in `.env`
+
+
+

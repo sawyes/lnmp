@@ -15,3 +15,8 @@ EXPOSE 6379
 
 CMD ["redis-server", "/usr/local/etc/redis/redis.conf"]
 #CMD ["redis-server"]
+
+# remove `COPY redis.conf /usr/local/etc/redis/redis.conf`
+# remove `CMD ["redis-server", "/usr/local/etc/redis/redis.conf"]`
+# up #CMD ["redis-server"]
+# to user default conf
