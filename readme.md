@@ -131,5 +131,5 @@ cp redis.conf.template to redis.conf
 
 data save path see DATA_PATH_HOST set in `.env`
 
-
+if new a redis conf, make a check `logfile "/var/log/redis/redis.log"` setting
 

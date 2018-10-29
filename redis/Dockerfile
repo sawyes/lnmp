@@ -9,6 +9,9 @@ COPY redis.conf /usr/local/etc/redis/redis.conf
 RUN echo "net.core.somaxconn = 551" > /etc/sysctl.conf && \
     echo "vm.overcommit_memory=1" >> /etc/sysctl.conf
 
+RUN mkdir -p /var/log/redis/ && \
+    chown redis:redis /var/log/redis
+
 VOLUME /data
 
 EXPOSE 6379

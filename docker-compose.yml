@@ -25,7 +25,7 @@ services:
           - ENABLE_PHP72=${UPSTREAM_ENABLE_PHP72}
       volumes:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
-        - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
+        - ${LOGS_PATH}/nginx:/var/log/nginx
         - ${NGINX_SITES_PATH}:/etc/nginx/sites-available
       ports:
         - "${NGINX_HOST_HTTP_PORT}:80"
@@ -131,6 +131,7 @@ services:
         context: ./redis
       volumes:
         - ${DATA_PATH_HOST}/redis:/data
+        - ${LOGS_PATH}/redis:/var/log/redis
       ports:
         - "${REDIS_PORT}:6379"
 #        - "6379:6379"
