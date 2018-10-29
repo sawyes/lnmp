@@ -139,3 +139,21 @@ services:
         - TZ=${TIMEZONE}
       networks:
         - backend
+### gitlab ################################################
+    gitlab:
+      image: gitlab/gitlab-ce:latest
+      build:
+        context: ./gitlab
+      volumes:
+        #data
+        - ${DATA_PATH_HOST}/gitlab:/var/opt/gitlab
+        - ${LOGS_PATH}/gitlab:/var/log/gitlab
+        - ./gitlab/config:/etc/gitlab
+      ports:
+        - "8480:80"
+        - "8443:443"
+        - "2222:22"
+      environment:
+        - TZ=${TIMEZONE}
+      networks:
+        - backend
