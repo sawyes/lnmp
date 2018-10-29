@@ -7,8 +7,8 @@ thanks [laradock/php-fpm](https://github.com/laradock/php-fpm)
 - [x] nginx
 - [x] php-fpm
 - [ ] mysql
-- [ ] redis
-- [ ] gitlab
+- [x] redis
+- [x] gitlab
 
 
 ## usage
