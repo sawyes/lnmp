@@ -26,3 +26,7 @@ docker-compose up -d gitlab
 cp nginx_proxy_pass.conf /path/to/nginx
 ```
 
+# gitlab
+
+ Open your browser and visit the localhost on port 8989: http://localhost:8989 
+Note: You may change GITLAB_DOMAIN_NAME to your own domain name like http://gitlab.example.com default is http://localhost
