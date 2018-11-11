@@ -143,7 +143,7 @@ services:
       networks:
         - backend
       restart: always
-      
+
 ### gitlab ################################################
     gitlab:
       image: gitlab/gitlab-ce:latest
@@ -158,7 +158,7 @@ services:
       ports:
         - "8480:80"
         - "8443:443"
-        - "2222:22"
+        - "${GITLAB_HOST_SSH_PORT}:${GITLAB_HOST_SSH_PORT}"
       environment:
         GITLAB_OMNIBUS_CONFIG: |
           external_url '${GITLAB_EXTERNAL_URL}'
@@ -174,7 +174,7 @@ services:
 #          gitlab_rails['db_password'] = 'laradock_gitlab'
 #          gitlab_rails['db_database'] = 'laradock_gitlab'
 #          gitlab_rails['initial_root_password'] = '${GITLAB_ROOT_PASSWORD}'
-#          gitlab_rails['gitlab_shell_ssh_port'] = ${GITLAB_HOST_SSH_PORT}
+          gitlab_rails['gitlab_shell_ssh_port'] = ${GITLAB_HOST_SSH_PORT}
       networks:
         - backend
       restart: always
