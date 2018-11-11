@@ -160,7 +160,7 @@ services:
       environment:
         GITLAB_OMNIBUS_CONFIG: |
           external_url '${GITLAB_EXTERNAL_URL}'
-          redis['enable'] = false
+          redis['enable'] = true
 #          nginx['listen_https'] = false
 #          nginx['listen_port'] = 80
 #          postgresql['enable'] = false
