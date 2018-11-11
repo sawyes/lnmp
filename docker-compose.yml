@@ -158,8 +158,8 @@ services:
         - ${LOGS_PATH}/gitlab:/var/log/gitlab
         - ./gitlab/config:/etc/gitlab
       ports:
-        - "8480:80"
-        - "8443:443"
+        - "9480:80"
+        - "9443:443"
         - "${GITLAB_HOST_SSH_PORT}:${GITLAB_HOST_SSH_PORT}"
       environment:
         GITLAB_OMNIBUS_CONFIG: |
