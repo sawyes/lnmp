@@ -159,8 +159,8 @@ services:
         - ./gitlab/config:/etc/gitlab
       ports:
         - "9480:80"
-        - "9443:443"
-        - "2222:${GITLAB_HOST_SSH_PORT}"
+        # - "9443:443"
+        - "${GITLAB_HOST_SSH_PORT}:22"
       environment:
         GITLAB_OMNIBUS_CONFIG: |
           external_url '${GITLAB_EXTERNAL_URL}'
