@@ -145,7 +145,7 @@ services:
 ### gitlab ################################################
     gitlab:
       image: gitlab/gitlab-ce:latest
-      hostname: 'gitlab.example.com'
+      hostname: '${GITLAB_HOSTNAME}'
       build:
         context: ./gitlab
       volumes:
@@ -159,7 +159,7 @@ services:
         - "2222:22"
       environment:
         GITLAB_OMNIBUS_CONFIG: |
-          external_url 'https://gitlab.example.com'
+          external_url '${GITLAB_EXTERNAL_URL}'
           redis['enable'] = false
 #          nginx['listen_https'] = false
 #          nginx['listen_port'] = 80
