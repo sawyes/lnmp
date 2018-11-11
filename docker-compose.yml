@@ -150,6 +150,8 @@ services:
       hostname: '${GITLAB_HOSTNAME}'
       build:
         context: ./gitlab
+        args:
+          - TZ=${TIMEZONE}
       volumes:
         #data
         - ${DATA_PATH_HOST}/gitlab:/var/opt/gitlab
