@@ -177,11 +177,11 @@ services:
         - backend
       restart: always
 
-      gitlab-runner:
-        image: gitlab/gitlab-runner:latest
-        environment:
-          - CI_SERVER_URL=${GITLAB_DOMAIN_NAME}
-        volumes:
-          - ${DATA_PATH_HOST}/gitlab/runner:/etc/gitlab-runner
-          - /var/run/docker.sock:/var/run/docker.sock:rw
-        restart: always
+    gitlab-runner:
+      image: gitlab/gitlab-runner:latest
+      environment:
+        - CI_SERVER_URL=${GITLAB_DOMAIN_NAME}
+      volumes:
+        - ${DATA_PATH_HOST}/gitlab/runner:/etc/gitlab-runner
+        - /var/run/docker.sock:/var/run/docker.sock:rw
+      restart: always
