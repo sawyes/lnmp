@@ -160,8 +160,7 @@ services:
         - "8443:443"
         - "${GITLAB_HOST_SSH_PORT}:${GITLAB_HOST_SSH_PORT}"
       environment:
-        - TZ=${TIMEZONE}
-        - GITLAB_OMNIBUS_CONFIG: |
+        GITLAB_OMNIBUS_CONFIG: |
           external_url '${GITLAB_EXTERNAL_URL}'
           redis['enable'] = true
           gitlab_rails['gitlab_shell_ssh_port'] = ${GITLAB_HOST_SSH_PORT}
