@@ -142,7 +142,8 @@ services:
         - TZ=${TIMEZONE}
       networks:
         - backend
-       restart: always
+      restart: always
+      
 ### gitlab ################################################
     gitlab:
       image: gitlab/gitlab-ce:latest
