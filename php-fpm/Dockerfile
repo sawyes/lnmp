@@ -32,6 +32,7 @@ RUN if [ ${HTTP_PROXY} ]; then \
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         cron \
+        vim \
         curl \
         libmemcached-dev \
         wget \
