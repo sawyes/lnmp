@@ -302,17 +302,6 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
     echo "source ~/aliases.sh" >> ~/.bashrc && \
 	echo "" >> ~/.bashrc
 
-###########################################################################
-# Crontab
-###########################################################################
-
-USER root
-
-COPY ./crontab /etc/cron.d
-
-RUN chmod -R 644 /etc/cron.d
-
-
 WORKDIR /var/www
 
 CMD ["php-fpm"]
