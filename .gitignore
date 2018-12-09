@@ -4,3 +4,4 @@ logs
 nginx/sites/*.conf
 redis/redis.conf
 gitlab/config
+php-fpm/crontab/*.conf

@@ -287,6 +287,31 @@ ARG APP_GID=1001
 RUN groupadd -r ${APP_GROUP} -g ${APP_GID} && \
     useradd --no-log-init -u ${APP_UID} -r -g ${APP_GROUP} ${APP_USER}
 
+###########################################################################
+# User Aliases
+###########################################################################
+
+USER root
+
+COPY ./aliases.sh /root/aliases.sh
+
+RUN sed -i 's/\r//' /root/aliases.sh && \
+    echo "" >> ~/.bashrc && \
+    echo "# Load Custom Aliases" >> ~/.bashrc && \
+    echo "source ~/aliases.sh" >> ~/.bashrc && \
+	echo "" >> ~/.bashrc
+
+###########################################################################
+# Crontab
+###########################################################################
+
+USER root
+
+COPY ./crontab /etc/cron.d
+
+RUN chmod -R 644 /etc/cron.d
+
+
 WORKDIR /var/www
 
 CMD ["php-fpm"]
