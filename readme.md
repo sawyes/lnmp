@@ -6,7 +6,7 @@ thanks [laradock/php-fpm](https://github.com/laradock/php-fpm)
 
 - [x] nginx
 - [x] php-fpm
-- [ ] mysql
+- [x] mysql
 - [x] redis
 - [x] gitlab
 
@@ -40,6 +40,14 @@ docker-compose up -d nginx
 docker-compose exec php-fpm bash
 docker-compose exec nginx bash
 ```
+
+check service `env` or `config`
+
+```
+docker-compose run php-fpm env
+docker-compose config ls
+```
+
 
 #### rebuild
 
@@ -132,4 +140,9 @@ cp redis.conf.template to redis.conf
 data save path see DATA_PATH_HOST set in `.env`
 
 if new a redis conf, make a check `logfile "/var/log/redis/redis.log"` setting
+
+## mysql 
+
+default version `5.7` not the latest, something to learn mysql8.0 about auth, so, delay it
+
 
