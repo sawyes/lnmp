@@ -7,6 +7,17 @@ networks:
     driver: ${NETWORKS_DRIVER}
 
 services:
+### Adminer ###########################################
+    adminer:
+      image: adminer:latest
+      ports:
+        - "${ADM_PORT}:8080"
+      depends_on:
+        - php-fpm
+      networks:
+        - frontend
+        - backend
+
 ### NGINX Server #########################################
     nginx:
       build:
