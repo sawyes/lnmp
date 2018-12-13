@@ -143,6 +143,8 @@ if new a redis conf, make a check `logfile "/var/log/redis/redis.log"` setting
 
 ## mysql 
 
+[mysql image learn more](https://docs.docker.com/samples/library/mysql/#connect-to-mysql-from-the-mysql-command-line-client)
+
 > it's easy to make wrong upgrade mysql version, so ,try to fix mysql version in env after build sucess
 
 ```
