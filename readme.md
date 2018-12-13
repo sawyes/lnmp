@@ -148,3 +148,5 @@ default version `5.7` not the latest, something to learn mysql8.0 about auth, so
 ```
 docker-compose up -d mysql
 ```
+
+> upgrade mysql version ,first you have to backup your database and clearout data dir
