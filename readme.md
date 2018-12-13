@@ -150,3 +150,9 @@ docker-compose up -d mysql
 ```
 
 > upgrade mysql version ,first you have to backup your database and clearout data dir
+
+check which mysql version is
+
+```
+docker-compose run mysql env
+```
