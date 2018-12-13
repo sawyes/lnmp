@@ -143,7 +143,7 @@ if new a redis conf, make a check `logfile "/var/log/redis/redis.log"` setting
 
 ## mysql 
 
-default version `5.7` not the latest, something to learn mysql8.0 about auth, so, delay it
+> it's easy to make wrong upgrade mysql version, so ,try to fix mysql version in env after build sucess
 
 ```
 docker-compose up -d mysql
