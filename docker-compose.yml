@@ -17,7 +17,18 @@ services:
       networks:
         - frontend
         - backend
-
+### pgAdmin ##############################################
+    pgadmin:
+      build: ./pgadmin
+      ports:
+      - "${PGADMIN_PORT}:5050"
+      volumes:
+      - ${DATA_PATH_HOST}/pgadmin-backup:/var/lib/pgadmin/storage/pgadmin4
+      depends_on:
+      - postgres
+      networks:
+      - frontend
+      - backend
 ### NGINX Server #########################################
     nginx:
       build:
