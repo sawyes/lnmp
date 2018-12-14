@@ -21,14 +21,12 @@ services:
     pgadmin:
       build: ./pgadmin
       ports:
-      - "${PGADMIN_PORT}:5050"
+        - "${PGADMIN_PORT}:5050"
       volumes:
-      - ${DATA_PATH_HOST}/pgadmin-backup:/var/lib/pgadmin/storage/pgadmin4
-      depends_on:
-      - postgres
+        - ${DATA_PATH_HOST}/pgadmin-backup:/var/lib/pgadmin/storage/pgadmin4
       networks:
-      - frontend
-      - backend
+        - frontend
+        - backend
 ### NGINX Server #########################################
     nginx:
       build:
@@ -232,3 +230,17 @@ services:
       - "${MYSQL_PORT}:3306"
       networks:
       - backend
+### PostgreSQL ###########################################
+    postgres:
+      build: ./postgres
+      volumes:
+        - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql
+        # - ${POSTGRES_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+      ports:
+        - "${POSTGRES_PORT}:5432"
+      environment:
+        - POSTGRES_DB=${POSTGRES_DB}
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      networks:
+        - backend
