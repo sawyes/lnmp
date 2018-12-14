@@ -161,3 +161,17 @@ check which mysql version is
 ```
 docker-compose run mysql env
 ```
+
+## adminer
+
+database manager application
+
+```
+docker-compose up -d adminer
+```
+
+## pgadmin
+
+```
+docker-compose up -d pgadmin
+```
