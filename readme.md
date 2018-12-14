@@ -175,3 +175,20 @@ docker-compose up -d adminer
 ```
 docker-compose up -d pgadmin
 ```
+
+
+## postgres
+
+```
+docker-compose up -d postgres
+```
+
+on window， first remove below before start
+```
+      volumes:
+        - ${DATA_PATH_HOST}/postgres:${PGDATA}
+        - ${POSTGRES_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+        
+      ...
+      - PGDATA=${PGDATA}/pgdata
+```
