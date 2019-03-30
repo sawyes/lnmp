@@ -302,6 +302,8 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
     echo "source ~/aliases.sh" >> ~/.bashrc && \
 	echo "" >> ~/.bashrc
 
+ENTRYPOINT ["./docker-entrypoint-initdb.d/crontab.sh"]
+
 WORKDIR /var/www
 
 CMD ["php-fpm"]
