@@ -304,8 +304,9 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
     echo "source ~/aliases.sh" >> ~/.bashrc && \
 	echo "" >> ~/.bashrc
 
-COPY ./docker-entrypoint-initdb.d/crontab.sh /docker-entrypoint-initdb.d/crontab.sh
-RUN chmod +x /docker-entrypoint-initdb.d/crontab.sh
+# modify startup.sh, you must be rebuild container by command "docker-compose build php-fpm"
+COPY ./docker-entrypoint-initdb.d/startup.sh /docker-entrypoint-initdb.d/startup.sh
+RUN chmod +x /docker-entrypoint-initdb.d/startup.sh
 
 WORKDIR /var/www
 
