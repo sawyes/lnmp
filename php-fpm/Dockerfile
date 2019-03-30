@@ -306,7 +306,7 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
 
 COPY ./docker-entrypoint-initdb.d/crontab.sh /docker-entrypoint-initdb.d/crontab.sh
 
-#ENTRYPOINT ["/docker-entrypoint-initdb.d/crontab.sh"]
+ENTRYPOINT ["/docker-entrypoint-initdb.d/crontab.sh"]
 
 WORKDIR /var/www
 
