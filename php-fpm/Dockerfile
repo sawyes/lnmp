@@ -310,8 +310,5 @@ RUN chmod +x /docker-entrypoint-initdb.d/crontab.sh
 WORKDIR /var/www
 
 CMD ["/docker-entrypoint-initdb.d/startup.sh"]
-#ENTRYPOINT ["/etc/init.d/cron start"]
-
-#CMD ["php-fpm"]
 
 EXPOSE 9000
