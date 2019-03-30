@@ -5,7 +5,7 @@ thanks [laradock/php-fpm](https://github.com/laradock/php-fpm)
 ## Todo list
 
 - [x] nginx
-- [x] php-fpm
+- [x] php-fpm(crontab)
 - [x] mysql
 - [x] postgres
 - [x] redis
