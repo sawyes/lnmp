@@ -302,7 +302,7 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
     echo "source ~/aliases.sh" >> ~/.bashrc && \
 	echo "" >> ~/.bashrc
 
-COPY ./crontab/* /etc/cron.d
+COPY ./crontab/* /etc/cron.d/
 
 ENTRYPOINT ["./docker-entrypoint-initdb.d/crontab.sh"]
 
