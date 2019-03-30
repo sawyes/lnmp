@@ -302,9 +302,6 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
     echo "source ~/aliases.sh" >> ~/.bashrc && \
 	echo "" >> ~/.bashrc
 
-COPY ./crontab/* /etc/cron.d/
-COPY ./docker-entrypoint-initdb.d/crontab.sh /docker-entrypoint-initdb.d
-
 ENTRYPOINT ["/docker-entrypoint-initdb.d/crontab.sh"]
 
 WORKDIR /var/www
