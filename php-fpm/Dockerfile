@@ -310,7 +310,7 @@ RUN chmod +x /docker-entrypoint-initdb.d/crontab.sh
 WORKDIR /var/www
 
 #ENTRYPOINT ["/docker-entrypoint-initdb.d/crontab.sh"]
-ENTRYPOINT ["/etc/init.d/cron start"]
+#ENTRYPOINT ["/etc/init.d/cron start"]
 
 CMD ["php-fpm"]
 
