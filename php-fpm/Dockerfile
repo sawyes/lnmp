@@ -281,9 +281,7 @@ RUN apt-get clean && \
 
 COPY ./php-fpm/php-fpm7.2.conf /usr/local/etc/php-fpm.d/www.conf
 
-COPY ./docker-entrypoint-initdb.d/crontab.sh /docker-entrypoint-initdb.d/crontab.sh
 
-ENTRYPOINT ["/docker-entrypoint-initdb.d/crontab.sh"]
 
 ARG APP_USER=www
 ARG APP_UID=1001
@@ -306,7 +304,9 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
     echo "source ~/aliases.sh" >> ~/.bashrc && \
 	echo "" >> ~/.bashrc
 
+COPY ./docker-entrypoint-initdb.d/crontab.sh /docker-entrypoint-initdb.d/crontab.sh
 
+#ENTRYPOINT ["/docker-entrypoint-initdb.d/crontab.sh"]
 
 WORKDIR /var/www
 
