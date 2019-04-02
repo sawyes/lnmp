@@ -307,8 +307,8 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
 ###########################################################################
 # Crontab
 ###########################################################################
-
-RUN cat /etc/cron.d/* >>/var/spool/cron/crontabs/root 
+COPY ./crontab/ /etc/cron.d/
+RUN cat /etc/cron.d/* >>/var/spool/cron/crontabs/root
 
 
 
