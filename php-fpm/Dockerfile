@@ -308,9 +308,6 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
 # Crontab
 ###########################################################################
 COPY ./crontab/ /etc/cron.d/
-RUN cat /etc/cron.d/* >>/var/spool/cron/crontabs/root
-
-
 
 # modify startup.sh, you must be rebuild container by command "docker-compose build php-fpm"
 COPY ./docker-entrypoint-initdb.d/startup.sh /docker-entrypoint-initdb.d/startup.sh
