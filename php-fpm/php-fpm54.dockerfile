@@ -38,7 +38,8 @@ RUN apt-get update && \
         libnghttp2-dev \
         libjpeg-dev \
         libmcrypt-dev \
-        libpcre3-dev
+        libpcre3-dev \
+        xvfb
 
 ###########################################################################
 # WKHTMLTOPDF, A application that output pdf document
