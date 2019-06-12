@@ -245,3 +245,10 @@ services:
         - PGDATA=${PGDATA}/pgdata
       networks:
         - backend
+### showdoc ###########################################
+    showdoc:
+      build: ./showdoc
+      ports:
+        - 4999:80
+      networks:
+        - backend
