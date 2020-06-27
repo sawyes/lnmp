@@ -192,3 +192,9 @@ on window， first remove below before start
       ...
       - PGDATA=${PGDATA}/pgdata
 ```
+
+## rocketmq
+
+```
+docker-compose up -d rocketmq
+```

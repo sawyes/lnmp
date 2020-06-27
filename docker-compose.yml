@@ -140,7 +140,7 @@ services:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
         - ./php-fpm/php-fpm54.ini:/usr/local/etc/php-fpm.conf
       expose:
-        - "9054"
+        - "9054"  
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
       environment:
@@ -252,3 +252,46 @@ services:
         - 4999:80
       networks:
         - backend
+
+### rocketmq ###########################################
+    # broker  
+    rocketmq:
+      image: foxiswho/rocketmq:broker-4.7.0
+      ports:
+        - "10911:10911"
+        - "10909:10909"
+      depends_on:
+        - rocketmq-nameserver
+        - rocketmq-console
+      environment:
+        - TZ=${TIMEZONE}  
+        - NAMESRV_ADDR=rocketmq-nameserver:9876
+        - JAVA_OPTS=-Duser.home=/opt
+        - JAVA_OPT_EXT=-server -Xms128m -Xmx128m
+      volumes:
+        - ./rocketmq/broker.conf:/etc/rocketmq/broker.conf
+      restart: always
+      networks:
+        - backend  
+
+    rocketmq-nameserver:
+      image: foxiswho/rocketmq:server-4.7.0
+      ports:
+        - "9876:9876"
+      environment:
+        - TZ=${TIMEZONE}  
+      restart: always
+      networks:
+        - backend  
+    
+    rocketmq-console:
+      image: styletang/rocketmq-console-ng
+      ports:
+        - "8180:8080"
+      environment:
+        - TZ=${TIMEZONE}  
+        - NAMESRV_ADDR=rocketmq-nameserver:9876
+        - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-nameserver:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+      restart: always
+      networks:
+        - backend  
