@@ -191,7 +191,7 @@ RUN if [ ${INSTALL_OPCACHE} = true ]; then \
 ;fi
 
 # # Override with custom opcache settings
-COPY ./opcache.ini $PHP_INI_DIR/conf.d/
+COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 COPY ./laravel.ini /usr/local/etc/php/conf.d/laravel.ini
 
 ###########################################################################
