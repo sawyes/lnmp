@@ -248,8 +248,12 @@ services:
 ### showdoc ###########################################
     showdoc:
       build: ./showdoc
+      user: root
+      privileged: true
       ports:
         - 4999:80
+      volumes:
+        - ${DATA_PATH_HOST}/showdoc_data/html:/var/www/html/
       networks:
         - backend
 
